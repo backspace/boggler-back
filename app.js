@@ -107,8 +107,10 @@ function wordFinder(boardString, words) {
     }
   }
   
-var words = ['ab', 'ad', 'bad'];
-
+const fs = require('fs');
+const wordListPath = require('word-list');
+const wordArray = fs.readFileSync(wordListPath, 'utf8').split('\n');
+  
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -116,7 +118,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/:board', function (req, res) {
-    res.json(wordFinder(req.params.board, words));
+    res.json(wordFinder(req.params.board, wordArray));
 });
 
 app.listen(port, () => console.log(`running at ${port}`));
