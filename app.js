@@ -76,7 +76,7 @@ function wordFinder(boardString, words) {
   
       return foundWords.concat(findWordsFrom(board, '', words, position, visitationBoard))
     }, []);
-    return foundWords;
+    return foundWords.uniq();
   }
   
   function findWordsFrom(board, stem, words, position, visitationBoard) {
