@@ -115,8 +115,8 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/', function (req, res) {
-    res.json(wordFinder('abcd', words));
+app.get('/:board', function (req, res) {
+    res.json(wordFinder(req.params.board, words));
 });
 
 app.listen(port, () => console.log(`running at ${port}`));
