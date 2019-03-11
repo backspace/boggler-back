@@ -110,7 +110,7 @@ function wordFinder(boardString, words) {
 var words = ['ab', 'ad', 'bad'];
 
 app.get('/', function (req, res) {
-    res.send(wordFinder('abcd', words));
+    res.json(wordFinder('abcd', words));
 });
 
 app.listen(port, () => console.log(`running at ${port}`));
